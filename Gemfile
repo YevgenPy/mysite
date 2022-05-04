@@ -71,3 +71,5 @@ group :test do
   gem "webdrivers"
 end
 gem 'ancestry'
+
+gem "devise", "~> 4.8"

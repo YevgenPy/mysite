@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Project</title>
-<!--  <span class="btn btn-info"><%#= current_user.role rescue  "Guest"%> </span>-->
-<!--  <span class="btn btn-info"><%#= current_user.first_name rescue  ""%> </span>-->
+  <span class="btn btn-info"><%= current_user.role rescue  "Guest"%> </span>
+  <span class="btn btn-info"><%= current_user.first_name rescue  ""%> </span>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -21,7 +21,6 @@
 
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
     <span class="btn btn-light"><%= link_to 'Home page', categories_path%></span>
-    <span class="btn btn-light"><%= link_to 'Categories pages', categories_path %> </span>
     <span class="btn btn-warning"><%= link_to "New Category", new_category_path %> </span>
     <span class="btn btn-warning"><%= link_to "New Post", new_post_path %> </span>
   </nav>
@@ -34,15 +33,15 @@
 
 <body>
 <main>
-<!--  <p class="notice"><%#= notice %></p>-->
-<!--  <p class="alert"><%#= alert %></p>-->
-  <%# if current_user %>
-    <%#= button_to 'Log out', destroy_user_session_path, method: :delete  %>
-    <%#= link_to 'Account Settings', edit_user_registration_path %>
-  <%# else %>
-    <%#= link_to "Sign in", new_user_session_path%>
-    <%#= link_to'Sign up', new_user_registration_path%>
-  <%# end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if current_user %>
+    <%= button_to 'Log out', destroy_user_session_path, method: :delete  %>
+    <%= link_to 'Account Settings', edit_user_registration_path %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path%>
+    <%= link_to'Sign up', new_user_registration_path%>
+  <% end %>
 
   <hr>
   <div class="container">
