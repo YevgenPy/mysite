@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+
+<h1><%= @category.name %></h1>
+
+<p><%= @category.description %></p>
+<%# @posts.each do |post| %>
+<!--  <div class="col-sm-4">-->
+<!--    <div class="panel panel-primary">-->
+<!--      <div class="panel-heading">-->
+        <%#= link_to post.name, post, class:"btn btn-primary btn-block" %>
+<!--      </div>-->
+<!--      <div class="panel-body">-->
+<!--       <%#= post.name %><br><%#= number_to_currency(post.name, unit: "RS " ) %><br>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<%#end%>
+
+
+<div>
+  <%= link_to "Edit this category", edit_category_path(@category) %> |
+  <%= link_to "Back to categories", categories_path %>
+
+  <%= button_to "Destroy this category", @category, method: :delete %>
+</div>
