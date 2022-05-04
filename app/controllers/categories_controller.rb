@@ -2,13 +2,11 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[ show edit update destroy ]
 
   def index
-    @categories = Category.all
-
+    @categories = Category.includes(:posts).order(created_at: :desc)
+    @posts = Post.all
   end
 
   def show
-    @posts = @category.posts.build
-    @posts = @category.posts
   end
 
   def new
