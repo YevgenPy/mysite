@@ -75,3 +75,7 @@ gem 'ancestry'
 gem "devise", "~> 4.8"
 
 gem "pundit", "~> 2.2"
+
+gem "searchkick"
+
+gem "elasticsearch", "< 7.1"
