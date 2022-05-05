@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, presence: true, uniqueness: true
-  has_many :posts
-  has_many :categories
+  validates :last_name, :first_name, presence: true
+  has_many :posts, dependent: :delete_all
+  has_many :categories, dependent: :delete_all
 
 
   enum role: [:user, :moderator, :admin]

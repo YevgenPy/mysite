@@ -73,3 +73,5 @@ end
 gem 'ancestry'
 
 gem "devise", "~> 4.8"
+
+gem "pundit", "~> 2.2"
