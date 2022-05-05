@@ -17,6 +17,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
+    authorize @post
 
     respond_to do |format|
       if @post.save
@@ -30,7 +32,9 @@ class PostsController < ApplicationController
   end
 
   def update
+
     respond_to do |format|
+
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
         format.json { render :show, status: :ok, location: @post }
@@ -42,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
     @post.destroy
 
     respond_to do |format|

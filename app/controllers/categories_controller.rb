@@ -18,7 +18,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-
+    @category.user = current_user
+    authorize @category
     respond_to do |format|
       if @category.save
         format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
@@ -31,6 +32,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    authorize @category
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
@@ -43,6 +45,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize @category
     @category.destroy
 
     respond_to do |format|

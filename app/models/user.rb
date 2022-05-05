@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :email, presence: true, uniqueness: true
   validates :last_name, :first_name, presence: true
-  has_many :posts, dependent: :delete_all
-  has_many :categories, dependent: :delete_all
+  has_many :posts, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
 
-  enum role: [:user, :moderator, :admin]
+  enum role: [:noob, :moderator, :admin]
   after_initialize :set_default_role, :if => :new_record?
   def set_default_role
     self.role ||= :user
