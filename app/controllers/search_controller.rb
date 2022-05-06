@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
   def search
     if params[:term].nil?
-      @categories = []
+      @result = []
     else
-      @categories = Category.search params[:term]
+      @result = Searchkick.search(params[:term], models: [Post, Category])
     end
   end
 end

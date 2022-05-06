@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
+<p>
+  <strong><%= t '.name' %></strong>
+  <%= @category.name %>
+</p>
 
-
-<h1><%= @category.name %></h1>
-
-<p><%= @category.description %></p>
-
+<p>
+  <strong><%= t '.description' %></strong>
+  <%= @category.description %>
+</p>
 
 <div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+  <%= link_to t('.edit'), edit_category_path(@category) %> |
+  <%= link_to t('.back'), categories_path %>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
+  <%= button_to t('.destroy'), @category, method: :delete %>
 </div>
+
+
+<h2><%= t'.all_posts' %></h2>
+
+<% @category.posts.each do |post| %>
+  <div class="alert alert-light">
+    <p>
+      <%=  post.created_at %>
+    </p>
+    <p> <%= link_to post.name, post_path(post)%></p>
+    <p><strong><%= post.user.first_name %></strong>: <%=post.description%> </p>
+  </div>
+<% end %>
+

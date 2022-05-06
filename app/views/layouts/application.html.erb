@@ -20,11 +20,25 @@
 
 
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-    <span class="btn btn-light"><%= link_to 'Home page', categories_path%></span>
-    <span class="btn btn-warning"><%= link_to "New Category", new_category_path %> </span>
-    <span class="btn btn-warning"><%= link_to "New Post", new_post_path %> </span>
+    <span class="btn btn-light"><%= link_to t('application.home'), categories_path%></span>
+    <span class="btn btn-warning"><%= link_to t('application.new_category'), new_category_path %> </span>
+    <span class="btn btn-warning"><%= link_to t('application.new_post'), new_post_path %> </span>
   </nav>
 </div>
+
+
+
+<ul class="dropdown-menu">
+  <% I18n.available_locales.each do |locale| %>
+    <li>
+      <% if I18n.locale == locale %>
+        <%= tag.span t(locale), class: 'dropdown-item' %>
+      <% else %>
+        <%= link_to t(locale), root_path(locale: locale), class: 'dropdown-item' %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <body>
 <%= render 'search/form' %>
@@ -36,11 +50,11 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <% if current_user %>
-    <%= button_to 'Log out', destroy_user_session_path, method: :delete  %>
-    <%= link_to 'Account Settings', edit_user_registration_path %>
+    <%= button_to t('application.log_out'), destroy_user_session_path, method: :delete  %>
+    <%= link_to t('application.account_set'), edit_user_registration_path %>
   <% else %>
-    <%= link_to "Sign in", new_user_session_path%>
-    <%= link_to'Sign up', new_user_registration_path%>
+    <%= link_to t('application.sign_in'), new_user_session_path%>
+    <%= link_to t('application.sign_up'), new_user_registration_path%>
   <% end %>
 
   <hr>

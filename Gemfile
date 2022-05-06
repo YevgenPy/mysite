@@ -79,3 +79,5 @@ gem "pundit", "~> 2.2"
 gem "searchkick"
 
 gem "elasticsearch", "< 7.1"
+
+gem 'rails-i18n', '~> 7.0.0'

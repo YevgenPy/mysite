@@ -1,0 +1,59 @@
+uk:
+  activerecord:
+    attributes:
+      user:
+        first_name: "Ім'я"
+        last_name: "Прізвище"
+        password: "Пароль"
+        email: "Електронна пошта"
+        password_confirmation: "підтвердження пароля"
+        current_password: "поточний пароль"
+      post:
+        name: "Назва"
+        description: "Опис"
+        category_id: "Батьківські категорії"
+      category:
+        name: "Назва"
+        description: "Опис"
+        parent_id: "Батьківські категорії"
+  devise:
+    registration:
+      edit:
+        cancel: "Скасувати мій обліковий запис"
+        update: "Оновлення"
+        we_need: "нам потрібен ваш поточний пароль, щоб підтвердити ваші зміни"
+        char_min: "мінімум символів"
+        leave: "залиште порожнім, якщо ви не хочете його змінювати"
+        unhappy: "Нещасливий?"
+        edit_user: "Редагувати користувача"
+  search:
+    form:
+      search: "Пошук"
+    search: "Результати пошуку :"
+  post:
+    new:
+      new_post: "Новий пост"
+      back_post: "Назад до дописів "
+  categories:
+    _form:
+      cancel: "Скасувати"
+    new:
+      new_category: 'Нова категорія'
+      back_to: "Назад до категорій"
+    show:
+      name: "Назва:"
+      description: "Опис:"
+      edit: "Редагувати цю категорію"
+      destroy: "Знищити цю категорію"
+      back: "Назад до категорій"
+      all_posts: "Усі пости:"
+    index:
+      name: "Категоріі"
+  application:
+    sign_in: "Увійти"
+    sign_up: "Зареєструватися"
+    account_set: "Налаштування аккаунта"
+    log_out: "Вийти"
+    new_post: "Новий пост"
+    new_category: "Нова категорія"
+    home: "Головна сторінка"
