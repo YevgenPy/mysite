@@ -1,13 +1,18 @@
 <h2><%= t "search.search" %> <i><%= params[:term] %></i></h2>
-<%= @result.inspect %>
 <% if @result %>
   <ul class=»search_results»>
     <% @result.each do |result| %>
       <li>
         <h3>
-          <%=link_to result.try(:highlight).try(:name) ?
-                       result.highlight.name[0].html_safe : result.name,
-                     controller: "posts", action: "show", id: result.id %>
+            <% if result.class.name.to_s == "Category" %>
+              <%=link_to result.try(:highlight).try(:name) ?
+                           result.highlight.name[0].html_safe : result.name,
+                         controller: "categories", action: "show", id: result.id %>
+              <% else %>
+              <%=link_to result.try(:highlight).try(:name) ?
+                           result.highlight.name[0].html_safe : result.name,
+                         controller: "posts", action: "show", id: result.id %>
+              <% end %>
         </h3>
         <%if result.try(:highlight).try(:text)%>
           <% result.highlight.text.each do |snippet| %>
