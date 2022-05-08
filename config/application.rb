@@ -13,6 +13,9 @@ module Mysite
     config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
     config.i18n.available_locales = %i[en uk]
     config.i18n.default_locale = :en
+    config.active_record.encryption.primary_key = Rails.application.credentials.encrypt.primary_key
+    config.active_record.encryption.deterministic_key = Rails.application.credentials.encrypt.deterministic_key
+    config.active_record.encryption.key_derivation_salt = Rails.application.credentials.encrypt.key_derivation_salt
 
     # Configuration for the application, engines, and railties goes here.
     #

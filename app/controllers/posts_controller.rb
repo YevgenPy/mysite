@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    authorize @post
     respond_to do |format|
 
       if @post.update(post_params)

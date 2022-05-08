@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :last_name, :first_name, presence: true
   has_many :posts, dependent: :destroy
   has_many :categories, dependent: :destroy
-
+  encrypts :first_name
+  encrypts :last_name
 
   enum role: [:noob, :moderator, :admin]
   after_initialize :set_default_role, :if => :new_record?
