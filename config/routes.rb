@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     devise_for :users
-    root "categories#index"
+    root "pages#index"
 
     get 'search', to: 'search#search'
 

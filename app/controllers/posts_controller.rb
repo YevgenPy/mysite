@@ -3,13 +3,16 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    authorize @post
   end
 
   def show
+    authorize @post
   end
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def edit

@@ -20,9 +20,12 @@
 
 
   <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-    <span class="btn btn-light"><%= link_to t('application.home'), categories_path%></span>
-    <span class="btn btn-warning"><%= link_to t('application.new_category'), new_category_path %> </span>
-    <span class="btn btn-warning"><%= link_to t('application.new_post'), new_post_path %> </span>
+    <span class="btn btn-light"><%= link_to t('application.home'), root_path%></span>
+    <% if current_user %>
+      <span class="btn btn-warning"><%= link_to "Go Content", categories_path %></span>
+      <span class="btn btn-warning"><%= link_to t('application.new_category'), new_category_path %> </span>
+      <span class="btn btn-warning"><%= link_to t('application.new_post'), new_post_path %> </span>
+    <% end %>
   </nav>
 </div>
 
@@ -52,9 +55,11 @@
   <% if current_user %>
     <%= button_to t('application.log_out'), destroy_user_session_path, method: :delete  %>
     <%= link_to t('application.account_set'), edit_user_registration_path %>
+    <%= link_to "Go Content", categories_path %>
   <% else %>
-    <%= link_to t('application.sign_in'), new_user_session_path%>
-    <%= link_to t('application.sign_up'), new_user_registration_path%>
+    <li><h2>You need Authorization or Registered!</h2></li>
+    <h3><%= link_to t('application.sign_in'), new_user_session_path%></h3>
+    <h3><%= link_to t('application.sign_up'), new_user_registration_path%></h3>
   <% end %>
 
   <hr>

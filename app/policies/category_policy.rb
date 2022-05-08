@@ -16,4 +16,11 @@ class CategoryPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
+  def index?
+    user.admin? || user.moderator? || user.noob?
+  end
+
+  def show?
+    user.admin? || user.moderator? || user.noob?
+  end
 end
