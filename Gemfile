@@ -71,15 +71,10 @@ group :test do
   gem "webdrivers"
 end
 gem 'ancestry'
-
 gem "devise", "~> 4.8"
-
 gem "pundit", "~> 2.2"
-
 gem "searchkick"
-
 gem "elasticsearch", "< 7.1"
-
 gem 'rails-i18n', '~> 7.0.0'
-
 gem 'activeadmin'
+gem "faker", "~> 2.20"

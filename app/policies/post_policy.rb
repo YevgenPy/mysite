@@ -1,10 +1,5 @@
 class PostPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
-  end
-
+  attr_reader :user, :record
   def index?
     user.admin? || user.moderator? || user.noob?
   end

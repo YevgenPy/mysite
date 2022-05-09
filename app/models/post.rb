@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
   searchkick
-  belongs_to :category, dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :category
+  belongs_to :user
 end
